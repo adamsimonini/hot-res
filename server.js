@@ -39,20 +39,23 @@ app.get("/", (req, res) => {
   res.send("Welcome!");
 });
 
+// endpoint to visit reservation.html
 app.get("/reservation", (req, res) => {
     res.sendFile(path.join(__dirname, "reservation.html"));
 })
 
+// endpoint to get the tables
 app.get("/api/tables", (req, res) => {
   res.send(tables);
 });
 
+// endpoint to get the waitlist
 app.get("/api/waitlist", (req, res) => {
   res.send(waitlist);
 });
 
-// Create table - takes in JSON input
-app.post("/api/table", function (req, res) {
+// endpoint to make a reservation via a post request
+app.post("/api/reserve-table", function (req, res) {
   // This works because of our body parsing middleware
   var table = req.body;
   console.log(table);
