@@ -17,28 +17,16 @@ app.use(express.json());
 // ===========================================================
 let tables = [
   {
-    customerName: "Ahmed",
-    customerEmail: "afhaque89@gmail.com",
-    customerID: "afhaque89",
-    phoneNumber: "979-587-0887",
+    name: "Ahmed",
+    phone: "979-587-0887",
+    email: "afhaque89@gmail.com",
+    id: "Ahmed1612216052717",
   },
   {
-    customerName: "Adam",
-    customerEmail: "ajsim@gmail.com",
-    customerID: "ajsim99",
-    phoneNumber: "416-499-1165",
-  },
-  {
-    customerName: "Ahmed",
-    customerEmail: "afhaque89@gmail.com",
-    customerID: "afhaque89",
-    phoneNumber: "979-587-0887",
-  },
-  {
-    customerName: "Adam",
-    customerEmail: "ajsim@gmail.com",
-    customerID: "ajsim99",
-    phoneNumber: "416-499-1165",
+    name: "Adam",
+    phone: "416-499-1165",
+    email: "ajsim@gmail.com",
+    id: "Adam1612216042717",
   },
 ];
 
@@ -50,6 +38,10 @@ let waitlist = [];
 app.get("/", (req, res) => {
   res.send("Welcome!");
 });
+
+app.get("/reservation", (req, res) => {
+    res.sendFile(path.join(__dirname, "reservation.html"));
+})
 
 app.get("/api/tables", (req, res) => {
   res.send(tables);
